@@ -1,0 +1,41 @@
+package services;
+
+import java.util.List;
+
+import dao.ComputerDao;
+import domain.Computer;
+
+public class ComputerServiceImpl implements ComputerService {
+
+	private ComputerDao computerDao;
+
+	public void setComputerDao(ComputerDao computerDao) {
+		this.computerDao = computerDao;
+	}
+
+	@Override
+	public void addComputer(Computer c) {
+		this.computerDao.addComputer(c);
+	}
+
+	@Override
+	public void updateComputer(Computer c) {
+		this.computerDao.updateComputer(c);
+	}
+
+	@Override
+	public List<Computer> getComputers() {
+		return this.computerDao.getComputers();
+	}
+
+	@Override
+	public void getComputerById(int id) {
+		this.computerDao.getComputerById(id);
+	}
+
+	@Override
+	public void removeComputer(int id) {
+		this.computerDao.removeComputer(id);
+	}
+
+}

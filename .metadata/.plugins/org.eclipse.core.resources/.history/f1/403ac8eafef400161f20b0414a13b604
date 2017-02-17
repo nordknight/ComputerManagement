@@ -1,0 +1,39 @@
+package dao;
+
+import java.util.List;
+
+import domain.Computer;
+
+public class ComputerDaoImpl implements ComputerDao{
+
+	@Override
+	public void addComputer(Computer c) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void updateComputer(Computer c) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public List<Computer> getComputers() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void getComputerById(int id) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void removeComputer(int id) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+}

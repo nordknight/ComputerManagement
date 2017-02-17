@@ -1,0 +1,21 @@
+package dao;
+
+import domain.Computer;
+
+public class ComputerDaoImpl {
+	public void create(Computer computer) {
+
+	}
+
+	public void read(int id) {
+
+	}
+
+	public void update(int id) {
+
+	}
+
+	public void delete(int id) {
+
+	}
+}

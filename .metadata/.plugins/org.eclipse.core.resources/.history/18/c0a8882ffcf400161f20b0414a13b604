@@ -1,0 +1,7 @@
+package dao;
+
+import domain.Computer;
+
+public class ComputerDaoImpl implements ComputerDao{
+	
+}

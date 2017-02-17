@@ -1,0 +1,48 @@
+package services;
+
+import java.util.List;
+
+import org.springframework.transaction.annotation.Transactional;
+
+import dao.ComputerDao;
+import domain.Computer;
+
+public class ComputerServiceImpl implements ComputerService {
+
+	private ComputerDao computerDao;
+
+	public void setComputerDao(ComputerDao computerDao) {
+		this.computerDao = computerDao;
+	}
+
+	@Override
+	@Transactional
+	public void addComputer(Computer c) {
+		this.computerDao.addComputer(c);
+	}
+
+	@Override
+	@Transactional
+	public void updateComputer(Computer c) {
+		this.computerDao.updateComputer(c);
+	}
+
+	@Override
+	@Transactional
+	public List<Computer> getComputers() {
+		return this.computerDao.getComputers();
+	}
+
+	@Override
+	@Transactional
+	public Computer getComputerById(int id) {
+		return this.computerDao.getComputerById(id);
+	}
+
+	@Override
+	@Transactional
+	public void removeComputer(int id) {
+		this.computerDao.removeComputer(id);
+	}
+
+}

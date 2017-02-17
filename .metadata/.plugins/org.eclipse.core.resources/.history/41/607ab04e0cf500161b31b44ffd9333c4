@@ -1,0 +1,19 @@
+package controllers;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+
+import services.ComputerService;
+
+public class ComputerController {
+	private ComputerService computerService;
+	
+	@Autowired(required=true)
+	@Qualifier(value="personService")
+	public void setPersonService(ComputerService ps){
+		this.computerService = ps;
+	}
+	
+	
+	
+}

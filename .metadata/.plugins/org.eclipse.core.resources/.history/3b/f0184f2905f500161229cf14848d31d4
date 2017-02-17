@@ -1,0 +1,67 @@
+package dao;
+
+import java.util.List;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.slf4j.Logger;
+
+import domain.Computer;
+
+public class ComputerDaoImpl implements ComputerDao{
+
+	private static final Logger logger = LoggerFactory.getLogger(Computer)
+	
+	private SessionFactory sessionFactory;
+	
+	public void setSessionFactory(SessionFactory sf){
+		this.sessionFactory = sf;
+	}
+	
+	@Override
+	public void addComputer(Computer c) {
+		Session session = this.sessionFactory.getCurrentSession();
+		session.persist(c);
+		logger.info("Person saved successfully, Person Details="+c);		
+	}
+
+	@Override
+	public void updateComputer(Computer c) {
+		Session session = this.sessionFactory.getCurrentSession();
+		session.update(c);
+		logger.info("Person updated successfully, Person Details="+c);
+		
+	}
+
+	@Override
+	public List<Computer> getComputers() {
+		Session session = this.sessionFactory.getCurrentSession();
+		@SuppressWarnings("unchecked")
+		List<Computer> computersList = session.createQuery("from computers").list();
+		for(Computer ñ : computersList){
+			logger.info("Person List::"+ñ);
+		}
+		return computersList;
+	}
+
+	@Override
+	public Computer getComputerById(int id) {
+		Session session = this.sessionFactory.getCurrentSession();		
+		Computer c = (Computer) session.load(Computer.class, new Integer(id));
+		logger.info("Computer loaded successfully, Computer details="+c);
+		return c;
+		
+	}
+
+	@Override
+	public void removeComputer(int id) {
+		Session session = this.sessionFactory.getCurrentSession();
+		Computer c = (Computer) session.load(Computer.class, new Integer(id));
+		if(null != c){
+			session.delete(c);
+		}
+		logger.info("Person deleted successfully, person details="+p);
+		
+	}
+	
+}

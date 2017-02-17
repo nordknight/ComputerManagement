@@ -1,0 +1,8 @@
+package dao;
+
+import domain.Computer;
+
+public interface ComputerDao {
+	public void addComputer(Computer c);
+	public void updateComputer(Computer c);
+}

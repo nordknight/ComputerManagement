@@ -1,0 +1,57 @@
+package dao;
+
+import java.util.List;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+
+import domain.Computer;
+
+public class ComputerDaoImpl implements ComputerDao{
+
+	//private static final Logger logger = LoggerFactory.getLogger(Computer)
+	
+	private SessionFactory sessionFactory;
+	
+	public void setSessionFactory(SessionFactory sf){
+		this.sessionFactory = sf;
+	}
+	
+	@Override
+	public void addComputer(Computer c) {
+		Session session = this.sessionFactory.getCurrentSession();
+		session.persist(c);
+		//logger.info("Person saved successfully, Person Details="+c);		
+	}
+
+	@Override
+	public void updateComputer(Computer c) {
+		Session session = this.sessionFactory.getCurrentSession();
+		session.update(c);
+		//logger.info("Person updated successfully, Person Details="+c);
+		
+	}
+
+	@Override
+	public List<Computer> getComputers() {
+		Session session = this.sessionFactory.getCurrentSession();
+		List<Computer> personsList = session.createQuery("from computers").list();
+		/*for(Person p : personsList){
+			logger.info("Person List::"+p);
+		}*/
+		return personsList;
+	}
+
+	@Override
+	public void getComputerById(int id) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void removeComputer(int id) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+}
